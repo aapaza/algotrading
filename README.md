@@ -1,0 +1,2 @@
+*Algotrading*
+Finance + Python
