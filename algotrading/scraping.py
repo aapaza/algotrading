@@ -21,7 +21,7 @@
 import os
 import bs4
 import requests
-from settings import OUT_DIR
+from algotrading.settings import OUT_DIR
 
 
 def csv_from_ticker(ticker, start=None, end=None):
