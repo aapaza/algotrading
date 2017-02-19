@@ -18,11 +18,8 @@
 # License along with this program; if not, write to the
 # Free Software Foundation, Inc., 51 Franklin St, Fifth Floor,
 # Boston, MA 02110-1301, USA.
-import sys
-sys.path.append("../../src/")
-
-from scraping import csv_from_ticker
-from visual import plot_candlestick_from_csv
+from algotrading.scraping import csv_from_ticker
+from algotrading.visual import plot_candlestick_from_csv
 
 path = csv_from_ticker("APT")
 plot_candlestick_from_csv(path)
