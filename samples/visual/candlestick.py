@@ -21,7 +21,7 @@
 import sys
 sys.path.append("../../src/")
 
-from visual import csv_from_ticker
+from scraping import csv_from_ticker
 from visual import plot_candlestick_from_csv
 
 path = csv_from_ticker("APT")
