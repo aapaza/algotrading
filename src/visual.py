@@ -25,20 +25,7 @@ import pandas_datareader.data as web
 import matplotlib.pyplot as plt
 import matplotlib.dates as mdates
 from matplotlib.finance import candlestick_ohlc
-from settings import OUT_DIR
 
-
-def csv_from_ticker(ticker, start=None, end=None):
-    filename = ticker.lower() + ".csv"
-    csv_path = os.path.join(OUT_DIR, filename)
-    if not os.path.exists(csv_path):
-        if start is None:
-            start = dt.datetime(2000, 1, 1)
-        if end is None:
-            end = dt.datetime.now().replace(second=0, microsecond=0)
-        df = web.DataReader(ticker.upper(), 'yahoo', start, end)
-        df.to_csv(csv_path)
-    return csv_path
 
 def plot_ma_from_csv(csv_path):
     df = pd.read_csv(csv_path, parse_dates=True, index_col=0)

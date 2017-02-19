@@ -18,10 +18,24 @@
 # License along with this program; if not, write to the
 # Free Software Foundation, Inc., 51 Franklin St, Fifth Floor,
 # Boston, MA 02110-1301, USA.
-
+import os
 import bs4
-import pickle
 import requests
+from settings import OUT_DIR
+
+
+def csv_from_ticker(ticker, start=None, end=None):
+    filename = ticker.lower() + ".csv"
+    csv_path = os.path.join(OUT_DIR, filename)
+    if not os.path.exists(csv_path):
+        if start is None:
+            start = dt.datetime(2000, 1, 1)
+        if end is None:
+            end = dt.datetime.now().replace(second=0, microsecond=0)
+        df = web.DataReader(ticker.upper(), 'yahoo', start, end)
+        df.to_csv(csv_path)
+    return csv_path
+
 
 def SP500_tickers_from_wikipedia():
     url = "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies"
