@@ -21,6 +21,8 @@
 import os
 import bs4
 import requests
+import datetime
+import pandas_datareader.data as web
 from algotrading.settings import OUT_DIR
 
 
@@ -29,9 +31,9 @@ def csv_from_ticker(ticker, start=None, end=None):
     csv_path = os.path.join(OUT_DIR, filename)
     if not os.path.exists(csv_path):
         if start is None:
-            start = dt.datetime(2000, 1, 1)
+            start = datetime.datetime(2000, 1, 1)
         if end is None:
-            end = dt.datetime.now().replace(second=0, microsecond=0)
+            end = datetime.datetime.now().replace(second=0, microsecond=0)
         df = web.DataReader(ticker.upper(), 'yahoo', start, end)
         df.to_csv(csv_path)
     return csv_path

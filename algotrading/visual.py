@@ -19,9 +19,7 @@
 # Free Software Foundation, Inc., 51 Franklin St, Fifth Floor,
 # Boston, MA 02110-1301, USA.
 import os
-import datetime as dt
 import pandas as pd
-import pandas_datareader.data as web
 import matplotlib.pyplot as plt
 import matplotlib.dates as mdates
 from matplotlib.finance import candlestick_ohlc
